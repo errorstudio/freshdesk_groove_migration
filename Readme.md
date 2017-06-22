@@ -39,4 +39,7 @@ Freshdesk::Companies.find(123) # returns company 123
 Freshdesk::Tickets.where(company_id: 123, per_page: 20, included: :requester) #return the first 20 tickets for company 123, with requester data embedded
 ```
 
-This library uses the excellent [Her](https://github.com/remiprev/her) gem to do the heavy lifting. 
+This library uses the excellent [Her](https://github.com/remiprev/her) gem to do the heavy lifting.
+ 
+ # License
+ MIT. Have fun!

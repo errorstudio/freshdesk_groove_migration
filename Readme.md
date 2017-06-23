@@ -24,6 +24,12 @@ Shows a summary of freshdesk tickets for the client, like this:
 +--------+-------+
 ```
 
+## Migrate tickets
+If you choose to migrate tickets, you'll be prompted to choose a status (or all) to migrate; it'll run through each ticket and all the associated messages and transfer them.
+
+# Idempotence
+The script should be pretty good at checking that a message doesn't already exist, and skip ones which do. The only thing which won't work is migrating new thread items (notes etc.) to Groove if you've already done that thread before.
+
 # Messing around in the cli
 If you want to poke around the objects in the cli, run `bundle console` and then load the environment like this:
 

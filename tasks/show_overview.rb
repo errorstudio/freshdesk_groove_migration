@@ -5,6 +5,6 @@ task :show_overview => :prompt_company_action do |task, args|
     table.add_row [status, tickets.count]
   end
 
-  puts table
+  @cli.say table
 
 end

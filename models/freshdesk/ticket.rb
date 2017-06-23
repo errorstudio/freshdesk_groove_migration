@@ -3,6 +3,8 @@ module Freshdesk
     include Her::Model
     use_api FRESHDESK_API
 
+    has_many :conversations
+
     STATUSES = {
       open: 2,
       pending: 3,
@@ -19,6 +21,8 @@ module Freshdesk
     after_find ->(r) {
       r.status_id = r.status
       r.status = r.status_text
+      r.created_at = DateTime.parse(r.created_at)
+      r.updated_at = DateTime.parse(r.updated_at)
     }
 
     def url

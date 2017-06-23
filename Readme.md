@@ -40,6 +40,9 @@ Freshdesk::Tickets.where(company_id: 123, per_page: 20, included: :requester) #r
 ```
 
 This library uses the excellent [Her](https://github.com/remiprev/her) gem to do the heavy lifting.
+
+# Known Issues
+The biggest issue is that this __won't work for contacts with > 100 tickets__. Freshdesk requires pagination and we haven't got that here.
  
  # License
  MIT. Have fun!

@@ -1,8 +1,8 @@
 task :prompt_company do
-  cli = HighLine.new
-  puts "Loading companies..."
+  @cli = HighLine.new
+  @cli.say "Loading companies..."
   companies = Freshdesk::Company.all.to_a
-  cli.choose do |menu|
+  @cli.choose do |menu|
     menu.prompt = "Which client?"
     companies.each do |company|
       menu.choice(company.name) do

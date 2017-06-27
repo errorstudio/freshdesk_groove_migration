@@ -1,7 +1,7 @@
 task :prompt_company_action, [:company_id] => :prompt_company do |task, args|
   @cli.say "You chose #{@company.name}"
   @cli.say "Fetching tickets..."
-  tickets = Freshdesk::Ticket.where(company_id: @company.id, per_page: 100, include: :requester)
+  tickets = Freshdesk::Ticket.where(company_id: @company.id, per_page: 100, include: :requester, order_by: :updated_at)
   @cli.say "#{tickets.count} #{'ticket'.pluralize(count: tickets.count)} to consider."
 
   @cli.choose do |menu|

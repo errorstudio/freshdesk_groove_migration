@@ -5,6 +5,7 @@ require 'highline'
 require 'byebug'
 require 'terminal-table'
 require 'yaml'
+require 'csv'
 
 $credentials = YAML.load_file('config/credentials.yml').with_indifferent_access
 

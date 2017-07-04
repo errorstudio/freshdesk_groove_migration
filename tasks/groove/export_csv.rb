@@ -12,9 +12,9 @@ namespace :groove do
           ticket.assigned_group,
           ticket.customer_email,
           ticket.title,
-          ticket.summary.squish.gsub(/[\u2018\u2019]/, '\''),
+          CGI.unescape_html(ticket.summary.squish.gsub(/[\u2018\u2019]/, '\'')),
           #
-          ticket.messages.collect(&:plain_text_body).collect {|b| b.squish.gsub(/[\u2018\u2019]/, '\'')}.join("\r\r")
+          CGI.unescape_html(ticket.messages.collect(&:plain_text_body).collect {|b| b.squish.gsub(/[\u2018\u2019]/, '\'')}.join("\r\r"))
         ]
       end
     end
